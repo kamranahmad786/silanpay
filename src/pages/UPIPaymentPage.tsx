@@ -10,7 +10,6 @@ import {
   Instagram,
   Linkedin,
   Youtube,
-  Search,
 } from "lucide-react";
 import Header from "../components/layout/Header";
 
