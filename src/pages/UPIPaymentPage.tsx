@@ -6,12 +6,10 @@ import {
   Phone,
   Mail,
   MapPin,
-
   Linkedin,
   Facebook,
   Instagram,
   Youtube,
-  
 } from "lucide-react";
 import Header from "../components/layout/Header";
 
@@ -146,7 +144,7 @@ const UPIPaymentPage: React.FC = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-12 text-center text-white">
+        <div className="bg-primary-600 rounded-2xl p-12 text-center text-white">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-4">
               <span className="text-2xl font-bold">#SimplifyPayments</span>
@@ -172,7 +170,7 @@ const UPIPaymentPage: React.FC = () => {
 
             <Link
               to="/register"
-              className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
+              className="inline-flex items-center bg-secondary-600 hover:bg-secondary-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
             >
               Get Started
               <ArrowRight className="ml-2" size={20} />
@@ -229,7 +227,7 @@ const UPIPaymentPage: React.FC = () => {
                   size={20}
                   className="hover:text-orange-400 cursor-pointer"
                 />
-                <Youtube  
+                <Youtube
                   size={20}
                   className="hover:text-orange-400 cursor-pointer"
                 />
@@ -240,7 +238,7 @@ const UPIPaymentPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-bold text-primary-400 mb-4">
                 Products
-                <div className="w-8 h-0.5 bg-orange-500 mt-1"></div>
+                <div className="w-8 h-0.5 bg-secondary-500 mt-1"></div>
               </h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li>
@@ -273,7 +271,7 @@ const UPIPaymentPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-bold text-primary-400 mb-4">
                 Company
-                <div className="w-8 h-0.5 bg-orange-500 mt-1"></div>
+                <div className="w-8 h-0.5 bg-secondary-500 mt-1"></div>
               </h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li>
@@ -320,7 +318,7 @@ const UPIPaymentPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-bold text-primary-400 mb-4">
                 Developers
-                <div className="w-8 h-0.5 bg-orange-500 mt-1"></div>
+                <div className="w-8 h-0.5 bg-secondary-500 mt-1"></div>
               </h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li>
@@ -333,10 +331,7 @@ const UPIPaymentPage: React.FC = () => {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>
-              ©2025 silansoftware Technology Private Limited. All Rights
-              Reserved.
-            </p>
+            <p>©2025 Silansoftware Private Limited. All Rights Reserved.</p>
           </div>
         </div>
       </footer>

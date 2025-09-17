@@ -29,7 +29,7 @@ const ContactUsPage: React.FC = () => {
     <div className="min-h-screen bg-white font-outfit">
       <Header />
 
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
+      <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <span className="inline-flex items-center bg-primary-100 text-primary-800 px-4 py-2 rounded-full text-sm font-medium">
@@ -151,7 +151,7 @@ const ContactUsPage: React.FC = () => {
                   <div>
                     <div className="font-semibold text-gray-900">Email</div>
                     <div className="text-gray-600 text-sm">
-                      support@silansoftware.com
+                      info@silansoftware.com
                     </div>
                   </div>
                 </div>

@@ -15,12 +15,11 @@ const AboutUs: React.FC = () => {
             </h3>
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                silansoftware Technology Private Limited is a leading fintech
-                company dedicated to revolutionizing digital payments through
-                secure, scalable, and innovative solutions. We are a
-                next-generation payment gateway company that empowers businesses
-                to accept and manage online payments effortlessly and
-                efficiently.
+                Silansoftware Private Limited is a leading fintech company
+                dedicated to revolutionizing digital payments through secure,
+                scalable, and innovative solutions. We are a next-generation
+                payment gateway company that empowers businesses to accept and
+                manage online payments effortlessly and efficiently.
               </p>
               <p>
                 Founded with a vision to simplify financial transactions, we
@@ -35,7 +34,7 @@ const AboutUs: React.FC = () => {
                 need to grow confidently in today's digital landscape.
               </p>
             </div>
-            <div className="mt-12 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 border border-yellow-200">
+            <div className="mt-12 bg-gray-50 rounded-2xl p-8 border border-gray-200">
               <h4 className="text-2xl font-bold text-gray-900 mb-6">
                 Why Businesses Choose Us
               </h4>
@@ -69,7 +68,7 @@ const AboutUs: React.FC = () => {
               <div className="w-16 h-1 bg-primary-600 mt-2"></div>
             </h3>
             <div className="space-y-8">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+              <div className="bg-gray-50 rounded-2xl p-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-4">
                   Our Vision
                 </h4>
@@ -80,12 +79,12 @@ const AboutUs: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+              <div className="bg-gray-50 rounded-2xl p-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-4">
                   Our Mission
                 </h4>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  At silansoftware Technology Private Limited, our mission is to
+                  At Silansoftware Private Limited, our mission is to
                   revolutionize the payment ecosystem by providing secure,
                   seamless, and innovative payment solutions that empower
                   businesses to grow, expand, and succeed in the digital
@@ -130,7 +129,7 @@ const AboutUs: React.FC = () => {
                   ].map((value, index) => (
                     <div
                       key={index}
-                      className={`bg-gradient-to-br ${value.color} rounded-xl p-6 border border-gray-100`}
+                      className={`bg-white rounded-xl p-6 border border-gray-100`}
                     >
                       <div className="flex items-start space-x-3">
                         <div className="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">

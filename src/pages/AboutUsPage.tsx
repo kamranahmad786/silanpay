@@ -10,7 +10,7 @@ const AboutUsPage: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center bg-primary-100 text-primary-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
@@ -114,7 +114,7 @@ const AboutUsPage: React.FC = () => {
 
           <Link
             to="/register"
-            className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 shadow-lg"
+            className="inline-flex items-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 shadow-lg"
           >
             Get Started
             <ArrowRight className="ml-2" size={20} />
@@ -252,15 +252,14 @@ const AboutUsPage: React.FC = () => {
                 <p>📍 Plot No-741, 2nd Floor, Jayadev Vihar, 751013</p>
                 <p>📍 Bhubaneswar, Odisha</p>
                 <p>📞 Call: +91-89842 89279</p>
-                <p>🏢 silansoftware Technology Private Limited</p>
+                <p>🏢 Silansoftware Private Limited</p>
               </div>
             </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
             <p>
-              &copy; 2025 silansoftware Technology Private Limited. All Rights
-              Reserved.
+              &copy; 2025 Silansoftware Private Limited. All Rights Reserved.
             </p>
           </div>
         </div>

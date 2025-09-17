@@ -41,7 +41,7 @@ const LandingPage: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12">
+      <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Left Content */}
@@ -51,8 +51,9 @@ const LandingPage: React.FC = () => {
                 Empowering Digital Financial Solutions
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Transform Your Business with{" "}
-                <span className="bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
+                Transform Your Business with
+                <span className="text-primary-600">
+                  {" "}
                   Smart Payment Solutions
                 </span>
               </h1>
@@ -91,14 +92,14 @@ const LandingPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/register"
-                  className="inline-flex items-center justify-center bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
                 >
                   Get Started Free
                   <ArrowRight className="ml-2" size={20} />
                 </Link>
                 <Link
                   to="/docs"
-                  className="inline-flex items-center justify-center bg-gradient-to-r from-white to-gray-50 hover:from-gray-50 hover:to-gray-100 text-primary-600 border-2 border-primary-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center text-primary-600 border-2 border-primary-600 hover:bg-primary-50 px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
                 >
                   View Documentation
                 </Link>
@@ -515,10 +516,10 @@ const LandingPage: React.FC = () => {
                 <div
                   key={index}
                   className={`bg-white rounded-xl shadow-lg p-8 border border-gray-100 ${
-                    index === 0 ? "border-orange-500" : ""
+                    index === 0 ? "border-primary-600" : ""
                   }`}
                 >
-                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-gray-900 mb-2">
@@ -567,7 +568,7 @@ const LandingPage: React.FC = () => {
                 Our Mission
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed">
-                At silansoftware Technology Private Limited, our mission is to
+                At Silansoftware Private Limited, our mission is to
                 revolutionize the payment ecosystem by providing secure,
                 seamless, and innovative payment solutions that empower
                 businesses to grow, expand, and succeed in the digital economy.
@@ -839,7 +840,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary-600 to-primary-800">
+      <section className="py-16 bg-primary-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Elevate Your Business with
@@ -865,7 +866,7 @@ const LandingPage: React.FC = () => {
 
           <Link
             to="/register"
-            className="inline-flex items-center bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
+            className="inline-flex items-center bg-secondary-600 hover:bg-secondary-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
           >
             Get Started
             <ArrowRight className="ml-2" size={20} />
@@ -938,7 +939,7 @@ const LandingPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-bold text-primary-600 mb-4">
                 Products
-                <div className="w-8 h-0.5 bg-orange-500 mt-1"></div>
+                <div className="w-8 h-0.5 bg-secondary-500 mt-1"></div>
               </h4>
               <ul className="space-y-3 text-sm text-gray-700">
                 <li>
@@ -980,7 +981,7 @@ const LandingPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-bold text-primary-600 mb-4">
                 Company
-                <div className="w-8 h-0.5 bg-orange-500 mt-1"></div>
+                <div className="w-8 h-0.5 bg-secondary-500 mt-1"></div>
               </h4>
               <ul className="space-y-3 text-sm text-gray-700">
                 <li>
@@ -1030,7 +1031,7 @@ const LandingPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-bold text-primary-600 mb-4">
                 Developers
-                <div className="w-8 h-0.5 bg-orange-500 mt-1"></div>
+                <div className="w-8 h-0.5 bg-secondary-500 mt-1"></div>
               </h4>
               <ul className="space-y-3 text-sm text-gray-700">
                 <li>
@@ -1060,15 +1061,14 @@ const LandingPage: React.FC = () => {
                 <p>📍 Plot No-741, 2nd Floor, Jayadev Vihar, 751013</p>
                 <p>📍 Bhubaneswar, Odisha</p>
                 <p>📞 Call: +91-89842 89279</p>
-                <p>🏢 silansoftware Technology Private Limited</p>
+                <p>🏢 Silansoftware Private Limited</p>
               </div>
             </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
             <p>
-              &copy; 2025 silansoftware Technology Private Limited. All Rights
-              Reserved.
+              &copy; 2025 Silansoftware Private Limited. All Rights Reserved.
             </p>
           </div>
         </div>

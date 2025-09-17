@@ -124,4 +124,5 @@ The app is fully responsive with breakpoints:
 
 ## 📄 License
 
-This project is proprietary software owned by Silansoftware Technology Private Limited.
+This project is proprietary software owned by
+Silansoftware Private Limited.

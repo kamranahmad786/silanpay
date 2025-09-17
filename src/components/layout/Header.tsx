@@ -175,7 +175,7 @@ const Header: React.FC = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={14} />
-              <span>support@silansoftware.com</span>
+              <span>info@silansoftware.com</span>
             </div>
           </div>
           <div className="text-xs sm:text-sm">24/7 Support Available</div>

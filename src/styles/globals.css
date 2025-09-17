@@ -4,16 +4,16 @@
 
 /* Custom CSS Variables */
 :root {
-  --primary-color: #1d4ed8;
-  --primary-dark: #1e3a8a;
-  --secondary-color: #059669;
-  --accent-color: #d97706;
+  --primary-color: #2563eb; /* Blue 600 */
+  --primary-dark: #1e40af; /* Indigo 800 */
+  --secondary-color: #06b6d4; /* Cyan 500 */
+  --accent-color: #0ea5e9; /* Cyan 500/600 for highlights */
   --accent-gold: #d97706;
   --accent-silver: #6b7280;
   --danger-color: #ef4444;
   --warning-color: #f59e0b;
   --success-color: #10b981;
-  --info-color: #3b82f6;
+  --info-color: #2563eb;
 
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
@@ -97,7 +97,7 @@ body {
   }
 
   .btn-primary {
-    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
   }
 
   .btn-secondary {
@@ -113,7 +113,7 @@ body {
   }
 
   .btn-outline {
-    @apply btn border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500;
+    @apply btn border-primary-600 text-primary-600 bg-white hover:bg-primary-50 focus:ring-primary-500;
   }
 
   .btn-ghost {
@@ -169,7 +169,7 @@ body {
   }
 
   .badge-info {
-    @apply badge bg-blue-100 text-blue-800;
+    @apply badge bg-primary-100 text-primary-800;
   }
 
   .badge-gray {
@@ -288,7 +288,7 @@ body {
 /* Utility classes */
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent;
   }
 
   .bg-gradient-primary {
@@ -296,7 +296,7 @@ body {
   }
 
   .bg-gradient-secondary {
-    @apply bg-gradient-to-r from-secondary-500 to-primary-500;
+    @apply bg-gradient-to-r from-secondary-500 to-secondary-700;
   }
 
   .bg-gradient-accent {
