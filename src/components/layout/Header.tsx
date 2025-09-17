@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import {
   Menu,
   X,
-  Search,
-  ChevronDown,
   CreditCard,
   Link as LinkIcon,
   QrCode,
@@ -20,6 +18,7 @@ import {
   UserCheck,
   Scale,
   Circle,
+  ChevronDown,
 } from "lucide-react";
 
 const Header: React.FC = () => {
