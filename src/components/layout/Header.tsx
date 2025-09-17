@@ -4,8 +4,6 @@ import {
   Menu,
   X,
   Search,
-  Phone,
-  Mail,
   ChevronDown,
   CreditCard,
   Link as LinkIcon,
@@ -26,6 +24,7 @@ import {
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isDevelopersDropdownOpen, setIsDevelopersDropdownOpen] =
     useState(false);
@@ -76,6 +75,16 @@ const Header: React.FC = () => {
       };
     }
   }, [isMobileMenuOpen]);
+
+  // Toggle stronger background/shadow after small scroll
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const productsDropdownSections = [
     {
@@ -163,25 +172,14 @@ const Header: React.FC = () => {
     { name: "About Us", hasDropdown: false, href: "/about-us" },
   ];
 
-  return (
-    <header className="w-full bg-white shadow-sm">
-      {/* Top Bar */}
-      <div className="bg-primary-800 text-white text-sm py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="hidden sm:flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <Phone size={14} />
-              <span>+91-8984289279</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Mail size={14} />
-              <span>info@silansoftware.com</span>
-            </div>
-          </div>
-          <div className="text-xs sm:text-sm">24/7 Support Available</div>
-        </div>
-      </div>
+  const headerBgClass = isScrolled
+    ? "bg-white/90 shadow-md"
+    : "bg-white/70 shadow-sm";
 
+  return (
+    <header
+      className={`w-full sticky top-0 z-50 backdrop-blur-md ${headerBgClass}`}
+    >
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex items-center justify-between">
@@ -289,9 +287,9 @@ const Header: React.FC = () => {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button className="text-gray-700 hover:text-primary-600 transition-colors duration-200">
+            {/* <button className="text-gray-700 hover:text-primary-600 transition-colors duration-200">
               <Search size={20} />
-            </button>
+            </button> */}
             <Link
               to="/login"
               className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
