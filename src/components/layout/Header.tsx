@@ -1,33 +1,164 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Search, Phone, Mail, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  Search,
+  Phone,
+  Mail,
+  ChevronDown,
+  CreditCard,
+  Link as LinkIcon,
+  QrCode,
+  Repeat,
+  FileText,
+  Shuffle,
+  Send,
+  Users,
+  RotateCcw,
+  Wallet as WalletIcon,
+  Building2,
+  ShieldCheck,
+  UserCheck,
+  Scale,
+  Circle,
+} from "lucide-react";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [isDevelopersDropdownOpen, setIsDevelopersDropdownOpen] =
+    useState(false);
+  const productsCloseTimerRef = useRef<number | null>(null);
+  const developersCloseTimerRef = useRef<number | null>(null);
 
-  const productsDropdownItems = [
+  const handleProductsEnter = () => {
+    if (productsCloseTimerRef.current) {
+      window.clearTimeout(productsCloseTimerRef.current);
+      productsCloseTimerRef.current = null;
+    }
+    setIsProductsDropdownOpen(true);
+  };
+
+  const handleProductsLeave = () => {
+    if (productsCloseTimerRef.current) {
+      window.clearTimeout(productsCloseTimerRef.current);
+    }
+    productsCloseTimerRef.current = window.setTimeout(() => {
+      setIsProductsDropdownOpen(false);
+    }, 150);
+  };
+
+  const handleDevelopersEnter = () => {
+    if (developersCloseTimerRef.current) {
+      window.clearTimeout(developersCloseTimerRef.current);
+      developersCloseTimerRef.current = null;
+    }
+    setIsDevelopersDropdownOpen(true);
+  };
+
+  const handleDevelopersLeave = () => {
+    if (developersCloseTimerRef.current) {
+      window.clearTimeout(developersCloseTimerRef.current);
+    }
+    developersCloseTimerRef.current = window.setTimeout(() => {
+      setIsDevelopersDropdownOpen(false);
+    }, 150);
+  };
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isMobileMenuOpen]);
+
+  const productsDropdownSections = [
     {
-      name: "UPI",
-      description: "Fast, Secure, Seamless Payment Solution",
-      href: "/upi-payments",
+      heading: "Payments",
+      items: [
+        { name: "UPI Payments", href: "/upi-payments" },
+        { name: "Payment Links", href: "/payment-links" },
+        { name: "QR Code Payments", href: "/qr" },
+        { name: "Subscriptions & Recurring", href: "/subscriptions" },
+        { name: "Invoices", href: "/invoices" },
+        { name: "Smart Routing", href: "/smart-routing" },
+      ],
     },
     {
-      name: "API",
-      description: "Connect. Integrate. Build. Scale. Simplify",
-      href: "/docs",
+      heading: "Payouts",
+      items: [
+        { name: "Bulk Payouts (UPI/IMPS/NEFT)", href: "/payouts" },
+        { name: "Vendor/Partner Settlements", href: "/settlements" },
+        { name: "Refunds", href: "/refunds" },
+      ],
     },
     {
-      name: "WALLET",
-      description: "Empowering your spending, effortlessly securely",
-      href: "#",
+      heading: "Accounts",
+      items: [
+        { name: "Virtual Accounts", href: "/virtual-accounts" },
+        { name: "Escrow/Split Payments", href: "/split-payments" },
+        { name: "Wallets", href: "/wallet" },
+      ],
+    },
+
+    {
+      heading: "Risk & Compliance",
+      items: [
+        { name: "Fraud & Risk Engine", href: "/risk" },
+        { name: "KYC/Onboarding", href: "/kyc" },
+        { name: "Disputes/Chargebacks", href: "/disputes" },
+      ],
     },
   ];
 
+  const getItemIcon = (name: string) => {
+    switch (name) {
+      // Payments
+      case "UPI Payments":
+        return <CreditCard size={16} className="text-primary-600" />;
+      case "Payment Links":
+        return <LinkIcon size={16} className="text-primary-600" />;
+      case "QR Code Payments":
+        return <QrCode size={16} className="text-primary-600" />;
+      case "Subscriptions & Recurring":
+        return <Repeat size={16} className="text-primary-600" />;
+      case "Invoices":
+        return <FileText size={16} className="text-primary-600" />;
+      case "Smart Routing":
+        return <Shuffle size={16} className="text-primary-600" />;
+      // Payouts
+      case "Bulk Payouts (UPI/IMPS/NEFT)":
+        return <Send size={16} className="text-primary-600" />;
+      case "Vendor/Partner Settlements":
+        return <Users size={16} className="text-primary-600" />;
+      case "Refunds":
+        return <RotateCcw size={16} className="text-primary-600" />;
+      // Accounts
+      case "Virtual Accounts":
+        return <Building2 size={16} className="text-primary-600" />;
+      case "Escrow/Split Payments":
+        return <Scale size={16} className="text-primary-600" />;
+      case "Wallets":
+        return <WalletIcon size={16} className="text-primary-600" />;
+      // Risk & Compliance
+      case "Fraud & Risk Engine":
+        return <ShieldCheck size={16} className="text-primary-600" />;
+      case "KYC/Onboarding":
+        return <UserCheck size={16} className="text-primary-600" />;
+      case "Disputes/Chargebacks":
+        return <Scale size={16} className="text-primary-600" />;
+      default:
+        return <Circle size={16} className="text-primary-600" />;
+    }
+  };
+
   const navLinks = [
     { name: "Products", hasDropdown: true, href: "#" },
-    // { name: "Pricing", hasDropdown: false, href: "/pricing" },
-    // { name: "Banking Partners", hasDropdown: false, href: "#" },
     { name: "Developers", hasDropdown: true, href: "#" },
     { name: "About Us", hasDropdown: false, href: "/about-us" },
   ];
@@ -37,7 +168,7 @@ const Header: React.FC = () => {
       {/* Top Bar */}
       <div className="bg-primary-800 text-white text-sm py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center space-x-6">
+          <div className="hidden sm:flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone size={14} />
               <span>+91-8984289279</span>
@@ -47,12 +178,12 @@ const Header: React.FC = () => {
               <span>support@silansoftware.com</span>
             </div>
           </div>
-          <div className="text-sm">24/7 Support Available</div>
+          <div className="text-xs sm:text-sm">24/7 Support Available</div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
@@ -64,60 +195,100 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <div key={link.name} className="relative group">
-                {link.hasDropdown ? (
-                  <div
-                    onMouseEnter={() =>
-                      link.name === "Products" &&
-                      setIsProductsDropdownOpen(true)
-                    }
-                    onMouseLeave={() =>
-                      link.name === "Products" &&
-                      setIsProductsDropdownOpen(false)
-                    }
-                  >
-                    <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200">
-                      <span>{link.name}</span>
-                      <ChevronDown size={16} />
-                    </button>
+          {/* Desktop Navigation - centered */}
+          <div className="hidden lg:flex flex-1 justify-center">
+            <div className="flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <div key={link.name} className="relative group">
+                  {link.hasDropdown ? (
+                    <div
+                      onMouseEnter={() => {
+                        if (link.name === "Products") handleProductsEnter();
+                        if (link.name === "Developers") handleDevelopersEnter();
+                      }}
+                      onMouseLeave={() => {
+                        if (link.name === "Products") handleProductsLeave();
+                        if (link.name === "Developers") handleDevelopersLeave();
+                      }}
+                    >
+                      <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200">
+                        <span>{link.name}</span>
+                        <ChevronDown size={16} />
+                      </button>
 
-                    {/* Products Dropdown */}
-                    {link.name === "Products" && isProductsDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 z-50">
-                        <div className="p-4">
-                          {productsDropdownItems.map((item, index) => (
-                            <Link
-                              key={index}
-                              to={item.href}
-                              className="block p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
-                            >
-                              <div className="flex flex-col">
-                                <h3 className="text-lg font-semibold text-primary-600 group-hover:text-primary-700 transition-colors">
-                                  {item.name}
-                                </h3>
-                                <p className="text-sm text-gray-600 mt-1">
-                                  {item.description}
-                                </p>
+                      {/* Products Dropdown */}
+                      {link.name === "Products" && isProductsDropdownOpen && (
+                        <div
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-[720px]"
+                          onMouseEnter={handleProductsEnter}
+                          onMouseLeave={handleProductsLeave}
+                        >
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+                            {productsDropdownSections.map((section) => (
+                              <div key={section.heading}>
+                                <div className="text-sm uppercase tracking-wide mb-3 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
+                                  {section.heading}
+                                </div>
+                                <ul className="space-y-2">
+                                  {section.items.map((item) => (
+                                    <li key={item.name}>
+                                      <div className="flex items-center gap-2 text-base text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md px-2 py-1 cursor-default">
+                                        {getItemIcon(item.name)}
+                                        <span>{item.name}</span>
+                                      </div>
+                                    </li>
+                                  ))}
+                                </ul>
                               </div>
-                            </Link>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                  >
-                    <span>{link.name}</span>
-                  </Link>
-                )}
-              </div>
-            ))}
+                      )}
+
+                      {/* Developers Dropdown */}
+                      {link.name === "Developers" &&
+                        isDevelopersDropdownOpen && (
+                          <div
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-[360px]"
+                            onMouseEnter={handleDevelopersEnter}
+                            onMouseLeave={handleDevelopersLeave}
+                          >
+                            <div className="p-6">
+                              <div className="text-sm uppercase tracking-wide mb-3 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
+                                Developer Tools
+                              </div>
+                              <ul className="space-y-2">
+                                {[
+                                  "API & SDKs",
+                                  "Webhooks",
+                                  "Plugins (Shopify/WordPress/etc.)",
+                                ].map((name) => (
+                                  <li key={name}>
+                                    <div className="block text-base text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md px-2 py-1 cursor-default">
+                                      {name}
+                                    </div>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+                    >
+                      <span>{link.name}</span>
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right actions */}
+          <div className="hidden lg:flex items-center space-x-4">
             <button className="text-gray-700 hover:text-primary-600 transition-colors duration-200">
               <Search size={20} />
             </button>
@@ -140,40 +311,53 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Fullscreen Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
+          <div className="lg:hidden fixed inset-0 z-50 bg-white overflow-y-auto">
+            <div className="px-4 pt-4 pb-8 border-b border-gray-200 flex items-center justify-between">
+              <span className="text-lg font-semibold text-gray-900">Menu</span>
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-gray-700 hover:text-primary-600 transition-colors duration-200"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="p-4 flex flex-col space-y-6">
               {navLinks.map((link) => (
                 <div key={link.name}>
                   {link.hasDropdown ? (
                     <div>
-                      <div className="text-gray-700 font-medium mb-2">
+                      <div className="text-gray-900 font-semibold mb-2">
                         {link.name}
                       </div>
-                      <div className="ml-4 space-y-3">
-                        {link.name === "Products" &&
-                          productsDropdownItems.map((item, index) => (
-                            <Link
-                              key={index}
-                              to={item.href}
-                              className="block text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              <div className="font-medium text-primary-600">
-                                {item.name}
+                      {link.name === "Products" && (
+                        <div className="ml-2 space-y-5">
+                          {productsDropdownSections.map((section) => (
+                            <div key={section.heading}>
+                              <div className="text-sm uppercase tracking-wide mb-2 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
+                                {section.heading}
                               </div>
-                              <div className="text-sm text-gray-500">
-                                {item.description}
-                              </div>
-                            </Link>
+                              <ul className="space-y-2">
+                                {section.items.map((item) => (
+                                  <li key={item.name}>
+                                    <div className="flex items-center gap-2 text-base text-gray-700 transition-colors duration-200 cursor-default">
+                                      {getItemIcon(item.name)}
+                                      <span>{item.name}</span>
+                                    </div>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           ))}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <Link
                       to={link.href}
-                      className="text-gray-700 hover:text-primary-600 transition-colors duration-200"
+                      className="text-gray-900 hover:text-primary-600 transition-colors duration-200"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
@@ -181,10 +365,10 @@ const Header: React.FC = () => {
                   )}
                 </div>
               ))}
-              <div className="flex flex-col space-y-2 pt-4">
+              <div className="flex flex-col space-y-3 pt-2">
                 <Link
                   to="/login"
-                  className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-2 rounded-lg font-medium text-center transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-3 rounded-lg font-medium text-center transition-all duration-200 shadow-lg hover:shadow-xl"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Login
