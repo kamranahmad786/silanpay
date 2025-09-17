@@ -774,7 +774,7 @@ const LandingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Built for fintechs.{" "}
-            <span className="text-purple-600">Trusted by Businesses.</span>
+            <span className="text-secondary-500">Trusted by Businesses.</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -822,7 +822,7 @@ const LandingPage: React.FC = () => {
                 >
                   <div className="text-center">
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-8 h-8 text-purple-600" />
+                      <IconComponent className="w-8 h-8 text-secondary-500" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {item.title}
@@ -993,7 +993,7 @@ const LandingPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/contact-us"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Contact Us
@@ -1001,7 +1001,7 @@ const LandingPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/terms"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Terms & Conditions
@@ -1009,7 +1009,7 @@ const LandingPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/privacy-policy"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Privacy Policy
@@ -1017,7 +1017,7 @@ const LandingPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/refund-policy"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Refund Policy

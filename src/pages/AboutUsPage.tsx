@@ -185,7 +185,7 @@ const AboutUsPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/contact-us"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Contact Us
@@ -193,7 +193,7 @@ const AboutUsPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/terms"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Terms & Conditions
@@ -201,7 +201,7 @@ const AboutUsPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/privacy-policy"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Privacy Policy
@@ -209,7 +209,7 @@ const AboutUsPage: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/refund-policy"
                     className="hover:text-primary-600 transition-colors"
                   >
                     Refund Policy

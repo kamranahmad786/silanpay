@@ -40,7 +40,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone size={14} />
-              <span>+91-9218000799</span>
+              <span>+91-8984289279</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={14} />
@@ -122,12 +122,6 @@ const Header: React.FC = () => {
               <Search size={20} />
             </button>
             <Link
-              to="/enquiry"
-              className="bg-gradient-to-r from-secondary-500 to-secondary-700 hover:from-secondary-600 hover:to-secondary-800 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Enquiry Now
-            </Link>
-            <Link
               to="/login"
               className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
             >
@@ -188,13 +182,6 @@ const Header: React.FC = () => {
                 </div>
               ))}
               <div className="flex flex-col space-y-2 pt-4">
-                <Link
-                  to="/enquiry"
-                  className="bg-gradient-to-r from-secondary-500 to-secondary-700 hover:from-secondary-600 hover:to-secondary-800 text-white px-6 py-2 rounded-lg font-medium text-center transition-all duration-200 shadow-lg hover:shadow-xl"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Enquiry Now
-                </Link>
                 <Link
                   to="/login"
                   className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-2 rounded-lg font-medium text-center transition-all duration-200 shadow-lg hover:shadow-xl"

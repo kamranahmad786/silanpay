@@ -22,6 +22,10 @@ import SupportPage from "./pages/SupportPage";
 import PricingPage from "./pages/PricingPage";
 import UPIPaymentPage from "./pages/UPIPaymentPage";
 import AboutUsPage from "./pages/AboutUsPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import RefundPolicyPage from "./pages/RefundPolicyPage";
+import ContactUsPage from "./pages/ContactUsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 // Components
@@ -67,6 +71,19 @@ function App() {
                       <Route path="/pricing" element={<PricingPage />} />
                       <Route path="/docs" element={<DocumentationPage />} />
                       <Route path="/support" element={<SupportPage />} />
+                      <Route path="/contact-us" element={<ContactUsPage />} />
+                      <Route
+                        path="/terms"
+                        element={<TermsAndConditionsPage />}
+                      />
+                      <Route
+                        path="/privacy-policy"
+                        element={<PrivacyPolicyPage />}
+                      />
+                      <Route
+                        path="/refund-policy"
+                        element={<RefundPolicyPage />}
+                      />
                       <Route
                         path="/upi-payments"
                         element={<UPIPaymentPage />}

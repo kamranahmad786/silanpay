@@ -6,10 +6,12 @@ import {
   Phone,
   Mail,
   MapPin,
+
+  Linkedin,
   Facebook,
   Instagram,
-  Linkedin,
   Youtube,
+  
 } from "lucide-react";
 import Header from "../components/layout/Header";
 
@@ -17,43 +19,6 @@ const UPIPaymentPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white font-outfit">
       {/* Top Support Bar */}
-      <div className="bg-primary-600 text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-            <div className="flex items-center space-x-4 mb-2 md:mb-0">
-              <span>24/7 Support Available</span>
-              <span className="flex items-center">
-                <Phone size={14} className="mr-1" />
-                +91-9218005800
-              </span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="flex items-center">
-                <Mail size={14} className="mr-1" />
-                support@silansoftware.com
-              </span>
-              <div className="flex items-center space-x-2">
-                <Facebook
-                  size={16}
-                  className="hover:text-orange-400 cursor-pointer"
-                />
-                <Instagram
-                  size={16}
-                  className="hover:text-orange-400 cursor-pointer"
-                />
-                <Linkedin
-                  size={16}
-                  className="hover:text-orange-400 cursor-pointer"
-                />
-                <Youtube
-                  size={16}
-                  className="hover:text-orange-400 cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <Header />
 
@@ -264,7 +229,7 @@ const UPIPaymentPage: React.FC = () => {
                   size={20}
                   className="hover:text-orange-400 cursor-pointer"
                 />
-                <Youtube
+                <Youtube  
                   size={20}
                   className="hover:text-orange-400 cursor-pointer"
                 />
@@ -317,22 +282,34 @@ const UPIPaymentPage: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-white transition-colors">
+                  <Link
+                    to="/contact-us"
+                    className="hover:text-white transition-colors"
+                  >
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-white transition-colors">
+                  <Link
+                    to="/terms"
+                    className="hover:text-white transition-colors"
+                  >
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-white transition-colors">
+                  <Link
+                    to="/privacy-policy"
+                    className="hover:text-white transition-colors"
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-white transition-colors">
+                  <Link
+                    to="/refund-policy"
+                    className="hover:text-white transition-colors"
+                  >
                     Refund Policy
                   </Link>
                 </li>

@@ -57,6 +57,9 @@
 html {
   scroll-behavior: smooth;
   font-family: "Outfit", sans-serif;
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff var(--bg-tertiary);
 }
 
 body {
@@ -79,12 +82,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
+  background: #ffffff;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: #ffffff;
 }
 
 /* Custom components */
