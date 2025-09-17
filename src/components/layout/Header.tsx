@@ -177,7 +177,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`w-full sticky top-0 z-50 backdrop-blur-md ${headerBgClass}`}
+      className={`w-full sticky top-0 z-50 backdrop-blur-md border-b border-gray-200 ${headerBgClass}`}
     >
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -310,7 +310,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu - Fullscreen Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-50 bg-white overflow-y-auto">
+          <div className="lg:hidden fixed inset-0 z-[9999] bg-white overflow-y-auto min-h-screen">
             <div className="px-4 pt-4 pb-8 border-b border-gray-200 flex items-center justify-between">
               <span className="text-lg font-semibold text-gray-900">Menu</span>
               <button
@@ -348,6 +348,26 @@ const Header: React.FC = () => {
                               </ul>
                             </div>
                           ))}
+                        </div>
+                      )}
+                      {link.name === "Developers" && (
+                        <div className="ml-2 space-y-4">
+                          <div className="text-sm uppercase tracking-wide mb-2 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
+                            Developer Tools
+                          </div>
+                          <ul className="space-y-2">
+                            {[
+                              "API & SDKs",
+                              "Webhooks",
+                              "Plugins (Shopify/WordPress/etc.)",
+                            ].map((name) => (
+                              <li key={name}>
+                                <div className="block text-base text-gray-700 transition-colors duration-200 cursor-default">
+                                  {name}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       )}
                     </div>
