@@ -30,6 +30,8 @@ import {
   Mail,
   MessageCircle,
   ShoppingCart,
+  QrCode,
+  Wallet as WalletIcon,
 } from "lucide-react";
 import Header from "../components/layout/Header";
 import AboutUs from "../components/AboutUs";
@@ -165,7 +167,7 @@ const LandingPage: React.FC = () => {
                   "Efficient, secure, real-time UPI payment solutions for quick and hassle-free transactions. Accept payments instantly through India's most popular payment method.",
                 features: [
                   "Real-time UPI payments",
-                  "Instant settlement",
+                  "T+1 settlement",
                   "High success rates",
                   "Easy integration",
                 ],
@@ -244,12 +246,12 @@ const LandingPage: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-gray-100">
+                  {/* <div className="mt-6 pt-4 border-t border-gray-100">
                     <button className="text-primary-600 hover:text-primary-700 font-semibold text-sm flex items-center">
                       Learn More
                       <ArrowRight className="ml-1" size={16} />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               );
             })}
@@ -278,22 +280,28 @@ const LandingPage: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              "QR Code Payments",
-              "UPI",
-              "Wallets",
-              "Net Banking",
-              "NEFT/RTGS",
-              "Net Banking",
-            ].map((method, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-lg p-4 border border-gray-100"
-              >
-                <div className="text-sm font-medium text-gray-700">
-                  {method}
+              { name: "QR Code Payments", icon: QrCode },
+              { name: "UPI", icon: Smartphone },
+              { name: "Wallets", icon: WalletIcon },
+              { name: "Net Banking", icon: Building2 },
+              { name: "NEFT/RTGS", icon: ArrowLeftRight },
+              { name: "Cards", icon: CreditCard },
+            ].map((method, index) => {
+              const IconComponent = method.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <div className="flex flex-col items-center space-y-2">
+                    <IconComponent className="w-6 h-6 text-primary-600" />
+                    <div className="text-sm font-medium text-gray-700 text-center">
+                      {method.name}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -416,23 +424,23 @@ const LandingPage: React.FC = () => {
         </div>
       </section> */}
 
-      {/* Same-Day Settlement */}
+      {/* T+1 Settlement */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Same-Day Settlement
+                T+1 Settlement
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Get your money faster with our same-day settlement feature. No
-                more waiting for days to access your funds.
+                Get your money faster with our T+1 settlement feature. Funds are
+                credited to your account within one business day of transaction.
               </p>
               <div className="space-y-4">
                 {[
-                  "Instant settlement for QR code payments",
-                  "Same-day processing for all transactions",
-                  "Real-time fund availability",
+                  "T+1 settlement for QR code payments",
+                  "Next business day processing for all transactions",
+                  "Fast fund availability within 24 hours",
                   "Automated reconciliation",
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">

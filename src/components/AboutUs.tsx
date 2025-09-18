@@ -176,7 +176,7 @@ const AboutUs: React.FC = () => {
                       "Efficient, secure, real-time UPI payment solutions for quick and hassle-free transactions.",
                     features: [
                       "Real-time UPI payments",
-                      "Instant settlement",
+                      "T+1 settlement",
                       "High success rates",
                       "Easy integration",
                     ],
