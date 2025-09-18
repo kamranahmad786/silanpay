@@ -192,109 +192,93 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation - centered */}
-          <div className="hidden lg:flex flex-1 justify-center">
-            <div className="flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative group">
-                  {link.hasDropdown ? (
-                    <div
-                      onMouseEnter={() => {
-                        if (link.name === "Products") handleProductsEnter();
-                        if (link.name === "Developers") handleDevelopersEnter();
-                      }}
-                      onMouseLeave={() => {
-                        if (link.name === "Products") handleProductsLeave();
-                        if (link.name === "Developers") handleDevelopersLeave();
-                      }}
-                    >
-                      <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200">
-                        <span>{link.name}</span>
-                        <ChevronDown size={16} />
-                      </button>
+          {/* Desktop Navigation - right aligned */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative group">
+                {link.hasDropdown ? (
+                  <div
+                    onMouseEnter={() => {
+                      if (link.name === "Products") handleProductsEnter();
+                      if (link.name === "Developers") handleDevelopersEnter();
+                    }}
+                    onMouseLeave={() => {
+                      if (link.name === "Products") handleProductsLeave();
+                      if (link.name === "Developers") handleDevelopersLeave();
+                    }}
+                  >
+                    <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200">
+                      <span>{link.name}</span>
+                      <ChevronDown size={16} />
+                    </button>
 
-                      {/* Products Dropdown */}
-                      {link.name === "Products" && isProductsDropdownOpen && (
-                        <div
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-[720px]"
-                          onMouseEnter={handleProductsEnter}
-                          onMouseLeave={handleProductsLeave}
-                        >
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
-                            {productsDropdownSections.map((section) => (
-                              <div key={section.heading}>
-                                <div className="text-sm uppercase tracking-wide mb-3 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
-                                  {section.heading}
-                                </div>
-                                <ul className="space-y-2">
-                                  {section.items.map((item) => (
-                                    <li key={item.name}>
-                                      <div className="flex items-center gap-2 text-base text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md px-2 py-1 cursor-default">
-                                        {getItemIcon(item.name)}
-                                        <span>{item.name}</span>
-                                      </div>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Developers Dropdown */}
-                      {link.name === "Developers" &&
-                        isDevelopersDropdownOpen && (
-                          <div
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-[360px]"
-                            onMouseEnter={handleDevelopersEnter}
-                            onMouseLeave={handleDevelopersLeave}
-                          >
-                            <div className="p-6">
+                    {/* Products Dropdown */}
+                    {link.name === "Products" && isProductsDropdownOpen && (
+                      <div
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-[720px]"
+                        onMouseEnter={handleProductsEnter}
+                        onMouseLeave={handleProductsLeave}
+                      >
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+                          {productsDropdownSections.map((section) => (
+                            <div key={section.heading}>
                               <div className="text-sm uppercase tracking-wide mb-3 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
-                                Developer Tools
+                                {section.heading}
                               </div>
                               <ul className="space-y-2">
-                                {[
-                                  "API & SDKs",
-                                  "Webhooks",
-                                  "Plugins (Shopify/WordPress/etc.)",
-                                ].map((name) => (
-                                  <li key={name}>
-                                    <div className="block text-base text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md px-2 py-1 cursor-default">
-                                      {name}
+                                {section.items.map((item) => (
+                                  <li key={item.name}>
+                                    <div className="flex items-center gap-2 text-base text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md px-2 py-1 cursor-default">
+                                      {getItemIcon(item.name)}
+                                      <span>{item.name}</span>
                                     </div>
                                   </li>
                                 ))}
                               </ul>
                             </div>
-                          </div>
-                        )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                    >
-                      <span>{link.name}</span>
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-          {/* Right actions */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {/* <button className="text-gray-700 hover:text-primary-600 transition-colors duration-200">
-              <Search size={20} />
-            </button> */}
-            <Link
-              to="/login"
-              className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Login
-            </Link>
+                    {/* Developers Dropdown */}
+                    {link.name === "Developers" && isDevelopersDropdownOpen && (
+                      <div
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-[360px]"
+                        onMouseEnter={handleDevelopersEnter}
+                        onMouseLeave={handleDevelopersLeave}
+                      >
+                        <div className="p-6">
+                          <div className="text-sm uppercase tracking-wide mb-3 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
+                            Developer Tools
+                          </div>
+                          <ul className="space-y-2">
+                            {[
+                              "API & SDKs",
+                              "Webhooks",
+                              "Plugins (Shopify/WordPress/etc.)",
+                            ].map((name) => (
+                              <li key={name}>
+                                <div className="block text-base text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md px-2 py-1 cursor-default">
+                                  {name}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+                  >
+                    <span>{link.name}</span>
+                  </Link>
+                )}
+              </div>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -383,13 +367,7 @@ const Header: React.FC = () => {
                 </div>
               ))}
               <div className="flex flex-col space-y-3 pt-2">
-                <Link
-                  to="/login"
-                  className="bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white px-6 py-3 rounded-lg font-medium text-center transition-all duration-200 shadow-lg hover:shadow-xl"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Login
-                </Link>
+                {/* Login button removed */}
               </div>
             </div>
           </div>

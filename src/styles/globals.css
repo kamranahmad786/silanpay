@@ -4,16 +4,16 @@
 
 /* Custom CSS Variables */
 :root {
-  --primary-color: #2563eb; /* Blue 600 */
-  --primary-dark: #1e40af; /* Indigo 800 */
-  --secondary-color: #06b6d4; /* Cyan 500 */
-  --accent-color: #0ea5e9; /* Cyan 500/600 for highlights */
+  --primary-color: #16a34a; /* Green 600 */
+  --primary-dark: #15803d; /* Green 700 */
+  --secondary-color: #10b981; /* Emerald 500 */
+  --accent-color: #059669; /* Emerald 600 for highlights */
   --accent-gold: #d97706;
   --accent-silver: #6b7280;
   --danger-color: #ef4444;
   --warning-color: #f59e0b;
   --success-color: #10b981;
-  --info-color: #2563eb;
+  --info-color: #16a34a;
 
   --text-primary: #1f2937;
   --text-secondary: #4b5563;

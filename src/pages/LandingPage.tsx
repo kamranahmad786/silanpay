@@ -16,7 +16,6 @@ import {
   Store,
   Package,
   Monitor,
-  Gamepad2,
   GraduationCap,
   Zap,
   Lock,
@@ -30,10 +29,12 @@ import {
   Phone,
   Mail,
   MessageCircle,
+  ShoppingCart,
 } from "lucide-react";
 import Header from "../components/layout/Header";
 import AboutUs from "../components/AboutUs";
 import ScrollToTop from "../components/common/ScrollToTop";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const LandingPage: React.FC = () => {
   return (
@@ -43,13 +44,17 @@ const LandingPage: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          {/* Centered Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center bg-primary-100 text-primary-800 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
+              Empowering Digital Financial Solutions
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="space-y-10 text-center">
-              <div className="inline-flex items-center bg-primary-100 text-primary-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                <span className="w-2 h-2 bg-primary-600 rounded-full mr-2"></span>
-                Empowering Digital Financial Solutions
-              </div>
+            <div className="space-y-10 text-center lg:text-center">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Transform Your Business with
                 <span className="text-primary-600">
@@ -59,9 +64,7 @@ const LandingPage: React.FC = () => {
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Experience lightning-fast payments, seamless integrations, and
-                enterprise-grade security. Accept 100+ payment methods including
-                UPI, cards, wallets, and more with our comprehensive payment
-                platform.
+                enterprise-grade security.
               </p>
 
               {/* Key Benefits */}
@@ -118,6 +121,20 @@ const LandingPage: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-500">Processed</div>
                 </div>
+              </div>
+            </div>
+
+            {/* Right Content - Lottie Animation */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-lg h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                <DotLottieReact
+                  src="https://lottie.host/5b3677bc-8b38-41e1-81c3-6eb9cde8131d/IvkXyLlGLd.lottie"
+                  loop
+                  autoplay
+                  className="w-full h-full"
+                />
+                {/* Optional overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
               </div>
             </div>
           </div>
@@ -263,16 +280,10 @@ const LandingPage: React.FC = () => {
             {[
               "QR Code Payments",
               "UPI",
-              "Credit/Debit Cards",
-              "Digital Wallets",
+              "Wallets",
               "Net Banking",
-              "EMI Options",
               "NEFT/RTGS",
-              "International Cards",
-              "Buy Now Pay Later",
-              "Cryptocurrency",
-              "Bank Transfers",
-              "Mobile Payments",
+              "Net Banking",
             ].map((method, index) => (
               <div
                 key={index}
@@ -437,7 +448,7 @@ const LandingPage: React.FC = () => {
             <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8">
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary-600 mb-2">
-                  T+0
+                  T+1
                 </div>
                 <div className="text-lg text-gray-600 mb-4">
                   Settlement Time
@@ -804,9 +815,10 @@ const LandingPage: React.FC = () => {
                 icon: Monitor,
               },
               {
-                title: "Gaming",
-                description: "Payouts with fraud control and 3-sec settlement",
-                icon: Gamepad2,
+                title: "E-commerce",
+                description:
+                  "Secure payments with fraud control and instant settlement",
+                icon: ShoppingCart,
               },
               {
                 title: "EduTech",
