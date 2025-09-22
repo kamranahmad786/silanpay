@@ -115,11 +115,11 @@ const LandingPage: React.FC = () => {
                 <div className="text-sm text-gray-500">Trusted by</div>
                 <div className="flex items-center space-x-4">
                   <div className="text-sm font-semibold text-gray-700">
-                    10,000+
+                    100+
                   </div>
                   <div className="text-sm text-gray-500">Businesses</div>
                   <div className="text-sm font-semibold text-gray-700">
-                    ₹2.4B+
+                    ₹2.4k+
                   </div>
                   <div className="text-sm text-gray-500">Processed</div>
                 </div>
@@ -772,7 +772,7 @@ const LandingPage: React.FC = () => {
                 <h4 className="font-semibold text-gray-900">
                   Revenue Analytics
                 </h4>
-                <div className="text-2xl font-bold text-gray-900">₹2.4M</div>
+                <div className="text-2xl font-bold text-gray-900">₹3.1M</div>
                 <div className="text-sm text-green-600">
                   +12% from last month
                 </div>
